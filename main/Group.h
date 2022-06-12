@@ -23,7 +23,11 @@ public:
 
 	int get_Size();
 
+	string get_Group_Name();
+
 	void set_Size(int size);
+
+	void set_Group_Name(string name);
 
 	void remove(Student* st);
 

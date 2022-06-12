@@ -22,7 +22,6 @@ Student::Student(string name, int mark) {
 };
 
 Student::~Student() {
-	cout << "destructor" << endl;
 	count--;
 };
 
@@ -55,6 +54,6 @@ void Student::set_Mark(int mark) {
 
 
 string Student::get_Info() {
-	return "Name -> " + name
-		+ "\nMark - > " + to_string(mark);
+	return "Name --> " + name
+		+ "\nMark --> " + to_string(mark);
 };

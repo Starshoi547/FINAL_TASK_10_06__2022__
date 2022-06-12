@@ -2,6 +2,13 @@
 
 
 
+
+Student_Manager::Student_Manager() {};
+Student_Manager::Student_Manager(string name) {
+	this->name = name;
+};
+
+
 int Student_Manager::calculateAvgIQ(Group &group) {
 	int avg = 0;
 
@@ -53,8 +60,23 @@ string Student_Manager::findTheBestStudent(Group& group){
 		}
 	}
 
-	return "The best student --> " + group.list[index].get_Name() + ", Mark = " + to_string(group.list[index].get_Mark());
+	return "The best student from " + group.get_Group_Name() + " --> " + group.list[index].get_Name() + ", Mark = " + to_string(group.list[index].get_Mark());
 };
+
+string Student_Manager::findTheWorstStudent(Group& group) {
+	int index = 0;
+
+	for (int i = 1; i < group.size; i++)
+	{
+		if (group.list[i].get_Mark() < group.list[index].get_Mark())
+		{
+			index = i;
+		}
+	}
+
+	return "The worst student from " + group.get_Group_Name() + " --> " + group.list[index].get_Name() + ", Mark = " + to_string(group.list[index].get_Mark());
+};
+
 
 string Student_Manager::findMaxIQ(Group& group){
 	int index = 0;
@@ -67,17 +89,47 @@ string Student_Manager::findMaxIQ(Group& group){
 		}
 	}
 
-	return group.list[index].get_Name();
+	return "Max IQ from " + group.get_Group_Name() + " --> " + to_string(group.list[index].get_IQ());
 };
 
-void Student_Manager::findMaxMark(Group& group){
+string Student_Manager::findMaxMark(Group& group){
+	int index = 0;
 
+	for (int i = 1; i < group.size; i++)
+	{
+		if (group.list[i].get_Mark() > group.list[index].get_Mark())
+		{
+			index = i;
+		}
+	}
+
+	return "Max Mark from " + group.get_Group_Name() + " --> " + to_string(group.list[index].get_Mark());
 };
 
-void Student_Manager::findMinIQ(Group& group){
+string Student_Manager::findMinIQ(Group& group){
+	int index = 0;
 
+	for (int i = 1; i < group.size; i++)
+	{
+		if (group.list[i].get_IQ() < group.list[index].get_IQ())
+		{
+			index = i;
+		}
+	}
+
+	return "Min IQ from " + group.get_Group_Name() + " --> " + to_string(group.list[index].get_IQ());
 };
 
-void Student_Manager::findMinMark(Group& group){
+string Student_Manager::findMinMark(Group& group){
+	int index = 0;
 
+	for (int i = 1; i < group.size; i++)
+	{
+		if (group.list[i].get_Mark() < group.list[index].get_Mark())
+		{
+			index = i;
+		}
+	}
+
+	return "Min Mark from " + group.get_Group_Name() + " --> " + to_string(group.list[index].get_Mark());
 };

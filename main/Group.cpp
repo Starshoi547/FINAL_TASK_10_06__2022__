@@ -47,15 +47,33 @@ void Group::set_Size(int size) {
 	this->size = size;
 }
 
+void Group::set_Group_Name(string name) {
+	this->name = name;
+}
+
 int Group::get_Size() {
 	return size;
 };
+
+string Group::get_Group_Name() {
+	return name;
+}
 
 void Group::remove(Student* st) {
 	count--;
 };
 
 string Group::get_Info() {
-	return "Group name -> " + name
-		+ "\nGroup size -> " + to_string(size);
+	if (list == NULL)
+	{
+		return "Group " + name + " is empty.";
+	}
+	else {
+		string msg = "Workers of group " + name + ":\n";
+		for (int i = 0; i < size; i++)
+		{
+			msg += list[i].get_Info() + "\n";
+		}
+		return msg;
+	}
 }
