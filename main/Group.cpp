@@ -7,9 +7,11 @@ Group::Group() {
 
 };
 
-Group::Group(string name, Student** st, int size, Student* list) {
+Group::Group(string name, int size) {
 	this->name = name;
 	this->size = size;
+	list = NULL;
+
 };
 
 void Group::add(Student &st) {
@@ -40,6 +42,10 @@ Student Group::get(int index) {
 		return list[index];
 	}
 };
+
+void Group::set_Size(int size) {
+	this->size = size;
+}
 
 int Group::get_Size() {
 	return size;

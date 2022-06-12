@@ -1,6 +1,11 @@
+#pragma once
 #include "Student.h"
+#include "Header.h"
 class Group
 {
+
+	friend class Student_Manager;
+
 private:
 	string name;
 	Student* list;
@@ -10,13 +15,15 @@ private:
 public:
 	Group();
 
-	Group(string name, Student** st, int size, Student* list);
+	Group(string name, int size);
 
 	void add(Student& st);
 
 	Student get(int index);
 
 	int get_Size();
+
+	void set_Size(int size);
 
 	void remove(Student* st);
 
